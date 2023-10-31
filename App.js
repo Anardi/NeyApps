@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { SearchNormal1, ArrowRight2, Archive, ProfileCircle, Setting3, Home, Cards, Profile, Heart } from 'iconsax-react-native';
-import { car, travel, cars } from './src/assets/Image';
+import { car, travel, bus, rides, hotel, plane, villa, train } from './src/assets/Image';
 import { fontType, colors } from './src/theme';
 import { Dimensions, ScrollView, StyleSheet, TextInput, View, Text, Image, TouchableOpacity } from 'react-native';
 
 const win = Dimensions.get('window')
 
 export default function App() {
+  //useState
+  const [selected, setSelected] = useState(1)
   return (
     <View style={ styles.container }>
       <ScrollView>
@@ -15,12 +17,12 @@ export default function App() {
           <View style={{ flex:1, marginHorizontal:15, marginBottom:15, marginTop:28 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', left: 10}}>
               <View style={{ flexDirection: 'column'}}>
-              <Text style={{ color:'black'}}>
-                Selamat Datang
-              </Text>
-              <Text style={{ fontSize:26, fontWeight: 'bold', color:'black'}}>
-              Bagas Anardi
-            </Text>
+                <Text style={{ color:'black'}}>
+                  Selamat Datang
+                </Text>
+                <Text style={{ fontSize:26, fontWeight: 'bold', color:'black'}}>
+                Bagas Anardi
+                </Text>
               </View>
               <ProfileCircle size="42" color="black" style={{ right: 32 }}/>
             </View>
@@ -34,30 +36,36 @@ export default function App() {
         {/* Add on */}
         <ScrollView horizontal>
           <View style={ styles.categoryContainer }>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>America</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Paris</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Brazil</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Rusia</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Africa</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>English</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Swiss</Text>
-            </View>
-            <View style={ styles.categoryContainer2 }>
-              <Text style={ styles.category }>Germany</Text>
-            </View>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 1 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(1)}>
+              <Text style={ [styles.category, { color: selected == 1 ? 'white' : 'black'}] }>Indonesia</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 2 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(2)}>
+              <Text style={ [styles.category, { color: selected == 2 ? 'white' : 'black'}] }>Malaysia</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 3 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(3)}>
+              <Text style={ [styles.category, { color: selected == 3 ? 'white' : 'black'}] }>America</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 4 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(4)}>
+              <Text style={ [styles.category, { color: selected == 4 ? 'white' : 'black'}] }>Paris</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 5 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(5)}>
+              <Text style={ [styles.category, { color: selected == 5 ? 'white' : 'black'}] }>Brazil</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 6 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(6)}>
+              <Text style={ [styles.category, { color: selected == 6 ? 'white' : 'black'}] }>Rusia</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 7 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(7)}>
+              <Text style={ [styles.category, { color: selected == 7 ? 'white' : 'black'}] }>Africa</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 8 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(8)}>
+              <Text style={ [styles.category, { color: selected == 8 ? 'white' : 'black'}] }>English</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 9 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(9)}>
+              <Text style={ [styles.category, { color: selected == 9 ? 'white' : 'black'}] }>Swiss</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={ [styles.categoryContainer2, { backgroundColor: selected == 10 ? '#02acf5' : '#f3f3f3'}] } onPress={()=>setSelected(10)}>
+              <Text style={ [styles.category, { color: selected == 10 ? 'white' : 'black'}] }>Germany</Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
 
@@ -72,21 +80,21 @@ export default function App() {
           </View>
           <View style={styles.fiturContainer2}>
             <Image
-              source={cars}
+              source={car}
               style={apps.icon}
             />
-            <Text style={apps.txtIcon}>Car</Text>
+            <Text style={apps.txtIcon}>Car</Text> 
           </View>
           <View style={styles.fiturContainer2}>
             <Image
-              source={car}
+              source={rides}
               style={apps.icon}
             />
             <Text style={apps.txtIcon}>Ride</Text>
           </View>
           <View style={styles.fiturContainer2}>
             <Image
-              source={car}
+              source={bus}
               style={apps.icon}
             />
             <Text style={apps.txtIcon}>Bus</Text>
@@ -96,21 +104,28 @@ export default function App() {
         <View style={ styles.fiturContainer }>
           <View style={styles.fiturContainer2}>
             <Image
-              source={car}
+              source={plane}
+              style={apps.icon}
+            />
+            <Text style={apps.txtIcon}>Plane</Text>
+          </View>
+          <View style={styles.fiturContainer2}>
+            <Image
+              source={train}
               style={apps.icon}
             />
             <Text style={apps.txtIcon}>Trains</Text>
           </View>
           <View style={styles.fiturContainer2}>
             <Image
-              source={car}
+              source={hotel}
               style={apps.icon}
             />
             <Text style={apps.txtIcon}>Hotel</Text>
           </View>
           <View style={styles.fiturContainer2}>
             <Image
-              source={car}
+              source={villa}
               style={apps.icon}
             />
             <Text style={apps.txtIcon}>Villa</Text>
@@ -130,31 +145,31 @@ export default function App() {
 
         <ScrollView horizontal style={ styles.box }>
           <View style={ styles.box2 }>
-            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1591284915748-bc48608e894d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
+            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
             <Text style={ styles.iklanTextHeader }>Wisata Raja Ampat</Text>
             <Text style={ styles.iklanTextSponsored }>Indonesia, Papua</Text>
             <Archive style={{ position:'absolute', right:5, bottom: 100 }} size="23" color="#02acf5" />
           </View>
           <View style={ styles.box2 }>
-            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1610970878459-a0e464d7592b?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZvb2QlMjBhbmQlMjBkcmlua3xlbnwwfHwwfHx8MA%3D%3D' }} />
+            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1668611084771-e0548ce981b5?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
             <Text style={ styles.iklanTextHeader }>Wisata Raja Elima</Text>
             <Text style={ styles.iklanTextSponsored }>Indonesia, Bali</Text>
             <Archive style={{ position:'absolute', right:5, bottom: 100 }} size="23" color="#02acf5" />
           </View>
           <View style={ styles.box2 }>
-            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZCUyMGFuZCUyMGRyaW5rfGVufDB8fDB8fHww' }} />
+            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1604560929658-bbc3c2ba6a36?auto=format&fit=crop&q=80&w=1973&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
             <Text style={ styles.iklanTextHeader }>Wisata Raja Enam</Text>
             <Text style={ styles.iklanTextSponsored }>Indonesia, NTT</Text>
             <Archive style={{ position:'absolute', right:5, bottom: 100 }} size="23" color="#02acf5" />
           </View>
           <View style={ styles.box2 }>
-            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZCUyMGFuZCUyMGRyaW5rfGVufDB8fDB8fHww' }} />
+            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1631681895793-4dbe543350e2?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
             <Text style={ styles.iklanTextHeader }>Wisata Raja Tujuh</Text>
             <Text style={ styles.iklanTextSponsored }>Indonesia, Yogyakarta</Text>
             <Archive style={{ position:'absolute', right:5, bottom: 100 }} size="23" color="#02acf5" />
           </View>
           <View style={ styles.box2 }>
-            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZCUyMGFuZCUyMGRyaW5rfGVufDB8fDB8fHww' }} />
+            <Image style={styles.iklanImage} source={{ uri: 'https://images.unsplash.com/photo-1600790314350-3925299bab61?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} />
             <Text style={ styles.iklanTextHeader }>Wisata Raja Duwa</Text>
             <Text style={ styles.iklanTextSponsored }>Indonesia, Lombok</Text>
             <Archive style={{ position:'absolute', right:5, bottom: 100 }} size="23" color="#02acf5" />
